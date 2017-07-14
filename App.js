@@ -16,3 +16,28 @@ export default class App extends React.Component {
     );
   }
 }
+
+
+
+//Navigator
+// export default StackNavigator({
+//   Home:{
+//     screen: HomeScreen,
+//   },
+// Login: {
+//   screen: LoginScreen,
+// },
+// Swipe:{
+//   screen: SwiperScreen,
+// },
+// Register: {
+//   screen: RegisterScreen,
+// },
+// Users: {
+//   screen: UsersScreen,
+// },
+// Messages: {
+//   screen: MessagesScreen
+// }
+// },
+// {initialRouteName: 'Home'});
