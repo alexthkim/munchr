@@ -2,13 +2,15 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
 
+import styles from '../assets/styles';
+
 const Card = ({ text, image }) => (
   <View style={styles.card}>
     <Image
-      style={{ width: '90%', height: '80%' }}
+      style={styles.cardImage}
       source={{uri: image}}
      />
-    <Text>{text}</Text>
+    <Text style={styles.cardTitle}>{text}</Text>
   </View>
 );
 
@@ -54,13 +56,11 @@ export default class SwipeCardsMunchr extends React.Component {
     return (
       <View style={styles.cardsContainer}>
         <SwipeCards
-          style={{
-            width: 375,
-          }}
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
           renderNoMoreCards={() => <NoMoreCards />}
-
+          yupText="Yum!"
+          nopeText="Ew!"
           handleYup={card => this.handleYup(card)}
           handleNope={card => this.handleNope(card)}
         />
