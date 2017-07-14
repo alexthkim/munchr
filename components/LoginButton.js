@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Alert, Text} from 'react-native';
+import { View, Button, Alert, Text,TouchableOpacity} from 'react-native';
 import {Facebook} from 'expo';
 
 import styles from '../assets/styles'
@@ -24,15 +24,12 @@ class LoginButton extends React.Component {
 
   render() {
     return (
-    <View>
+    <View style={styles.loginButton}>
 
-      <Button
-        style={styles.loginButton}
-        onPress={() => this.facebookLogin()}
-        backgroundColor="#3b5998"
-        color="#3b5998"
-        title="Log In With Facebook"
-      />
+      <TouchableOpacity onPress={(()=>this.facebookLogin())}>
+        <Text style={styles.loginText}>Log In with Facebook</Text>
+      </TouchableOpacity>
+
     </View>
   );
   }

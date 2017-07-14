@@ -9,24 +9,46 @@ function wp(percentage) {
     return Math.round(value);
 }
 
+function hp(percentage) {
+    const value = (percentage * windowHeight) / 100;
+    return Math.round(value);
+}
 
 export default {
   windowHeight: windowHeight,
   windowWidth: windowWidth,
 
   loginButton: {
-    width: 150,
-    height: 45,
-    backgroundColor: "#3b5998",
-    color: 'white'
+    flex:0.5,
+    justifyContent:"center"
+  },
+
+  loginText:{
+    color: '#3b5998',
   },
 
   carouselContainer: {
     width: windowWidth,
+    height: hp(78),
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
+    borderColor:'black',
+    borderWidth:0.5
+  },
+
+  imageContainer:{
+    width: "60%",
+    height: "60%"
+  },
+
+  image:{
+    width: "100%",
+    height: "100%",
+    borderWidth:0.5,
+    borderColor:'white',
+    borderRadius:20
   },
 
   appContainer: {

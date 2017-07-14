@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AsyncStorage,
   StyleSheet,
   View,
   Text,
@@ -12,41 +11,36 @@ import {
   Button,
   Dimensions
 } from 'react-native';
-import { StackNavigator } from 'react-navigation';
-import { Location, Permissions,MapView } from 'expo';
-import Swiper from 'react-native-swiper'
 import Carousel from 'react-native-carousel';
 
 import styles from '../assets/styles';
 
-class HomeScreen extends React.Component{
-  static navigationOptions = {
-    title: 'Home'
-  };
+class IntroCards extends React.Component{
 
   render() {
-
     return (
 
       <Carousel width={styles.windowWidth}
         animate={false}
         indicatorSize={20}
         indicatorSpace={15}
-        indicatorOffset={styles.windowHeight*0.2}
+        indicatorOffset={-25}
+
         >
-        <View style={styles.container}>
-          <Image
-            style={{width: "60%", height: "56%"}}
-            source={require('./img/intro.png')}
+        <View style={styles.carouselContainer}>
+          <View style={styles.imageContainer}>
+          <Image style={styles.image}
+            source={require('./../assets/intro.png')}
+          /></View>
+        </View>
+        <View style={styles.carouselContainer}>
+          <View style={styles.imageContainer}>
+            <Image style={styles.image}
+            source={require('./../assets/examples.png')}
           />
         </View>
-        <View style={styles.container}>
-          <Image
-            style={{width: "60%", height: "56%"}}
-            source={require('./img/examples.png')}
-          />
         </View>
-        <View style={styles.container}>
+        <View style={styles.carouselContainer}>
           <Text>Page 3</Text>
         </View>
       </Carousel>
@@ -56,4 +50,4 @@ class HomeScreen extends React.Component{
 
 
 
-export default HomeScreen;
+export default IntroCards;
