@@ -5,6 +5,7 @@ import LoginButton from './components/LoginButton';
 import SwipeNavbar from './components/swipeNavbar';
 import SwipeCards from './components/SwipeCards';
 import VoteButtons from './components/VoteButtons';
+import IntroCards from './components/IntroCards'
 
 import styles from './assets/styles';
 
