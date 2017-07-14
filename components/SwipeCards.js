@@ -18,7 +18,7 @@ const NoMoreCards = () => (
   </View>
 );
 
-export default class App extends React.Component {
+export default class SwipeCardsMunchr extends React.Component {
   constructor() {
     super();
     this.state = {

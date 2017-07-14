@@ -14,20 +14,27 @@ export default {
   windowHeight: windowHeight,
   windowWidth: windowWidth,
 
+  loginButton: {
+    width: 150,
+    height: 45,
+    backgroundColor: "#3b5998",
+    color: 'white'
+  },
+
   carouselContainer: {
-    width: viewportWidth,
+    width: windowWidth,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
 
-  cardsContainer: {
+  appContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 
   card: {
     flex: 1,
