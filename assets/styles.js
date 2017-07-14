@@ -9,16 +9,12 @@ function wp(percentage) {
     return Math.round(value);
 }
 
-const slideHeight = windowHeight * 0.4;
-const slideWidth = wp(75);
-const itemHorizontalMargin = wp(2);
-const itemWidth = windowHeight * 0.4 + wp(2) * 2;
 
 export default {
   windowHeight: windowHeight,
   windowWidth: windowWidth,
 
-  container: {
+  carouselContainer: {
     width: viewportWidth,
     flex: 1,
     justifyContent: 'center',
@@ -26,7 +22,21 @@ export default {
     backgroundColor: 'transparent',
   },
 
-  card: {
+  cardsContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 
+  card: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: wp(95),
+    height: wp(80),
+    borderWidth: 2,
+    borderRadius: 5,
+    borderColor: 'darkgrey'
   }
 };
