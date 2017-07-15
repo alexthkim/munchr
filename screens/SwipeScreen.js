@@ -68,6 +68,7 @@ export default class SwipeScreen extends React.Component {
 
     this.state = {
       settingsVisible: false,
+      friendsVisible: false,
       switchValue: false,
 
       searchRadius: 1.0,
@@ -79,9 +80,11 @@ export default class SwipeScreen extends React.Component {
 
 
   toggleModalVisibility(bool) {
-    this.setState({
-      settingsVisible: bool
-    })
+    this.setState({ settingsVisible: bool });
+  }
+
+  toggleFriendsVisibility(bool) {
+    this.setState({ friendsVisible: bool });
   }
 
   toggleSwitch(value) {
@@ -124,6 +127,47 @@ export default class SwipeScreen extends React.Component {
   render() {
     return (
       <View style={styles.appContainer}>
+
+        <Modal
+          animationType="slide"
+          visible={this.state.friendsVisible}>
+
+          {/* Close friends modal */}
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => this.toggleFriendsVisibility(false)}>
+                <Icon name="close" size={20} color='black' />
+          </TouchableOpacity>
+
+          <View style={{marginTop: 30, width: '100%', justifyContent: 'space-around', alignItems: 'center', }}>
+            <TouchableOpacity
+              style={{backgroundColor: '#EB4A4A', padding: 10,
+              alignItems: 'center', justifyContent: 'center',
+              borderRadius: 10}}
+              onPress={()=>{
+                this.toggleFriendsVisibility(false);
+                this.toggleModalVisibility(false);
+              }}
+              >
+              <Text style={{color: 'white', fontWeight: 'bold', fontSize: 24}}>Create a new group</Text>
+            </TouchableOpacity>
+            <Text style={{fontSize: 24, fontStyle: 'italic', padding: 25}}>or</Text>
+            <TouchableOpacity
+              style={{backgroundColor: '#F87B7B', padding: 10, alignItems: 'center', justifyContent: 'center', borderRadius: 10}}
+              onPress={()=>{
+                this.toggleFriendsVisibility(false);
+                this.toggleModalVisibility(false);
+              }}>
+                <Text style={{color: 'white', fontWeight: 'bold', fontSize: 24}}>Join an existing one</Text>
+              </TouchableOpacity>
+          </View>
+
+
+
+        </Modal>
+
+
+
         <Modal
           animationType="slide"
           visible={this.state.settingsVisible}
@@ -156,7 +200,7 @@ export default class SwipeScreen extends React.Component {
                         }}>Swipe in a group to find a place all of you will enjoy</Text>
                         <TouchableOpacity
                           style={styles.friendsButton}
-                          onPress={()=>console.log()}
+                          onPress={()=>this.toggleFriendsVisibility(true)}
                         >
                           <Text style={{color:'white', fontWeight: 'bold'}}>Toggle Group Mode</Text>
                         </TouchableOpacity>
@@ -179,7 +223,7 @@ export default class SwipeScreen extends React.Component {
 
             {/* Discovery type toggle */}
             <View style={{width: '90%', margin: 20, flexDirection: 'row', justifyContent: 'space-between'}}>
-              <Text style={{flex: 2}}>
+              <Text style={{flex: 2, fontSize: 18}}>
                 Discover new dishes!
               </Text>
               <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
@@ -200,7 +244,7 @@ export default class SwipeScreen extends React.Component {
             {/* Search radius slider */}
             <View style={{width:'90%', margin: 20, justifyContent:'center'}}>
               <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text>Search Distance:</Text>
+                <Text style={{fontSize: 18}}>Search Distance:</Text>
                 <Text>{this.state.displayRadius} mi.</Text>
               </View>
               <Slider
@@ -216,7 +260,7 @@ export default class SwipeScreen extends React.Component {
             {/* Dietary restrictions */}
             <View style={{width:'90%', margin: 20, justifyContent:'center'}}>
               <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text style={{flex: 2}}>Current dietary restrictions:</Text>
+                <Text style={{flex: 2, fontSize: 18}}>Dietary restrictions:</Text>
                   <ModalDropdown
                     options={this.foodPrefChoices
                               .map(item => item.name)

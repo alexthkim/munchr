@@ -14,7 +14,7 @@ const MenuButton = ({ onPress, icon }) =>
       </TouchableOpacity>
     </View>;
 
-export default class ASDF extends React.Component {
+export default class ResultsScreen extends React.Component {
   render() {
     return (
       <View style={{

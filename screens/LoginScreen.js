@@ -14,6 +14,7 @@ export default class LoginScreen extends React.Component {
           <Image style={{ width: 200, height:70}}
             source={require('./../assets/munchr.png')}/>
         </View>
+
         <LoginButton navigator={this.props.navigation}/>
       </View>
     );

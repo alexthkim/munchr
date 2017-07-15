@@ -1,5 +1,5 @@
 import React from 'react';
-import {AsyncStorage, View, Button, Alert, Text,TouchableOpacity} from 'react-native';
+import {AsyncStorage, View, Button, Text,TouchableOpacity} from 'react-native';
 import {Facebook} from 'expo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import navigation

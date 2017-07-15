@@ -14,7 +14,6 @@ export default class ResultCard extends React.Component{
   }
 
   componentDidMount() {
-    //alert("testing");
     AsyncStorage.getItem('mongoinfo')
     .then((result) => {
       var id = JSON.parse(result);
@@ -47,8 +46,6 @@ export default class ResultCard extends React.Component{
   }
 
     render(){
-      // alert(this.state.restaurant);
-      // alert(this.state.pictures);
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       console.log(this.state.pictures);
       return (
