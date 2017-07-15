@@ -11,28 +11,20 @@ import ResultsScreen from './screens/ResultsScreen';
 
 import styles from './assets/styles';
 
-// export default class App extends React.Component {
-//
-//   render() {
-//     return (
-//       <View style={styles.appContainer}>
-//         <IntroCards />
-//         <LoginButton />
-//       </View>
-//     );
-//   }
-// }
-
-
-
 //Navigator
 export default StackNavigator({
-Login: {
-  screen: LoginScreen,
+  Login: {
+    screen: LoginScreen,
+  },
+  Swipe:{
+    screen: SwipeScreen,
+  },
+  Results:{
+    screen: ResultsScreen,
+  }
 },
-Swipe:{
-  screen: SwipeScreen,
+{initialRouteName: 'Results',
+navigationOptions:{
+  header:null
 }
-},
-{initialRouteName: 'Login'
 });

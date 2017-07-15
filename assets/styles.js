@@ -24,7 +24,7 @@ export default {
   windowWidth: windowWidth,
 
   navbar: {
-    backgroundColor: 'lightgrey',
+    // backgroundColor: 'lightgrey',
     width: windowWidth,
     height: navbarHeight,
     position: 'absolute',
@@ -98,7 +98,7 @@ export default {
     height: windowHeight - navbarHeight,
     // width: windowWidth,
     // height: hp(60),
-    borderWidth: 1,
+    // borderWidth: 1,
     // borderColor: 'red',
     // backgroundColor: 'pink'
   },
@@ -109,16 +109,16 @@ export default {
     width: windowWidth,
     height: hp(75),
     padding: 10,
-    borderWidth: 2,
+    // borderWidth: 2,
     borderRadius: 10,
-    borderColor: 'darkgrey'
+    // borderColor: 'darkgrey'
   },
 
   cardImage: {
     flex: 5,
     width: '95%',
-    borderColor: 'darkgrey',
-    borderWidth: 2,
+    // borderColor: 'darkgrey',
+    // borderWidth: 2,
     borderRadius: 10
   },
 

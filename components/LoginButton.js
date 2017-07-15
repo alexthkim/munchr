@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Alert, Text,TouchableOpacity} from 'react-native';
+import {AsyncStorage, View, Button, Alert, Text,TouchableOpacity} from 'react-native';
 import {Facebook} from 'expo';
 // import navigation
 import styles from '../assets/styles'
@@ -7,33 +7,40 @@ import styles from '../assets/styles'
 class LoginButton extends React.Component {
   constructor(){
     super();
-    this.facebookLogin=this.facebookLogin.bind(this)
+    this.state=({
+      username:''
+    })
   }
   async facebookLogin() {
 
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(
       '1440702659353377',
-      { permissions: ['public_profile'] }
+      { permissions: ['public_profile', 'email'] }
     );
-    console.log(this.props)
+
     if (type === 'success') {
       console.log('success');
       // Get the user's name using Facebook's Graph API
       const response = await fetch(
-     `https://graph.facebook.com/me?access_token=${token}`)
+     `https://graph.facebook.com/me?fields=email,name,timezone,locale,gender&access_token=${token}`)
      .then((response)=>(response.json()))
-     .then((response)=>{
-     console.log(response);
-     //Navigator
-
+     .then((response)=> {
+       console.log(response);
+       fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
+       .then((response)=>{console.log(response.url)
+         AsyncStorage.setItem('username',JSON.stringify(response));
+         this.props.navigator.navigate('Swipe');})
      })
-    }
-    }
+   }
+  }
 
-    nav(){
-      // const { navigate } = this.props.navigation;
+  componentDidMount(){
+    AsyncStorage.getItem('username')
+    .then((result)=>{
+      this.setState({username:JSON.parse(result).name});
       this.props.navigator.navigate('Swipe');
-    }
+    })
+  }
 
   render() {
     return (
@@ -41,9 +48,6 @@ class LoginButton extends React.Component {
 
       <TouchableOpacity onPress={(()=>this.facebookLogin())}>
         <Text style={styles.loginText}>Log In with Facebook</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={(()=>this.nav())}>
-        <Text style={styles.loginText}>nav</Text>
       </TouchableOpacity>
 
     </View>
