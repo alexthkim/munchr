@@ -49,6 +49,7 @@ export default class ResultCard extends React.Component{
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
       console.log(this.state.pictures);
       return (
+        // <View style={{flex:1,backgroundColor:'white'}}>
         <ListView style={{backgroundColor:'white'}}
           dataSource={ds.cloneWithRows(this.state.restaurant)}
           renderRow={restaurant=>(
@@ -59,13 +60,13 @@ export default class ResultCard extends React.Component{
                   {restaurant.name}
                 </Text>
                 <Text style={{flex:1}}>
-                  {restaurant.location.address1}
+                  {restaurant.rating}/5
                 </Text>
               </View>
 
               <View style={styles.restaurantText2}>
                 <Text style={{flex:7}}>
-                  {restaurant.rating}
+                  {restaurant.location.address1}
                 </Text>
                 <Text style={{flex:1}}>
                   {restaurant.price}
@@ -76,14 +77,14 @@ export default class ResultCard extends React.Component{
                 <ResultPhotos img={this.state.pictures}/>
               </View>
               <View style={styles.restaurantCuisine}>
-                <Text>
-                  American
+                <Text style={{marginTop:10,marginBottom:10}}>
+                  {restaurant.categories[0].title}
                 </Text>
               </View>
             </View>
           )}
         />
-
+      // </View>
 
         )
       }
