@@ -77,7 +77,8 @@ export default {
   logoText: {
     color: 'darkgrey',
     fontStyle: 'italic',
-    fontSize: 24
+    fontSize: 24,
+    paddingTop:30
   },
 
   loginContainer: {
