@@ -47,6 +47,21 @@ export default {
     borderWidth: 2
   },
 
+  closeButton: {
+    top: 10,
+    left: 10,
+    margin: 10,
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderColor: 'black',
+    borderWidth: 2
+  },
+
   logoText: {
     color: 'darkgrey',
     fontStyle: 'italic',
