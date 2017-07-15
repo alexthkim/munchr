@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../assets/styles';
 
-const MenuButton = ({ onPress, content }) =>
+const MenuButton = ({ onPress, icon }) =>
     <View>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.menuButton}>
-          <Text>{content}</Text>
+          <Icon name={icon} size={30} color='darkgrey' />
         </View>
       </TouchableOpacity>
     </View>;
@@ -18,20 +19,24 @@ export default class SwipeNavbar extends React.Component {
 
   }
 
+  openModal() {
+
+  }
+
   render() {
     return (
       <View
         style={styles.navbar}>
         <MenuButton
-          onPress={() => this.goToPage('index')}
-          text='Settings'
+          onPress={this.props.openModal}
+          icon="cog"
         />
         <Text style={styles.logoText}>
           Munchr
         </Text>
         <MenuButton
           onPress={() => this.goToPage('results')}
-          content='Results'
+          icon="rocket"
         />
       </View>
     );
