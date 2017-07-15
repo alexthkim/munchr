@@ -33,7 +33,7 @@ export default class ASDF extends React.Component {
             icon="rocket"
           /> */}
         </View>
-        <ResultCard/>
+        <ResultCard cards={this.props.navigation.state.params.cards}/>
       </View>
     );
   }
