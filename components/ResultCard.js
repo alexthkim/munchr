@@ -24,7 +24,7 @@ export default class ResultCard extends React.Component{
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
       return (
-        <ListView style={{backgroundColor:'white'}}
+        <ListView style={{backgroundColor:'white', marginTop:100}}
           dataSource={ds.cloneWithRows([1,2])}
           renderRow={()=>
 

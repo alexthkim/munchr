@@ -8,7 +8,7 @@ const MenuButton = ({ onPress, icon }) =>
     <View>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.menuButton}>
-          <Icon name={icon} size={30} color='darkgrey' />
+          <Icon name={icon} size={30} color='lightgrey' />
         </View>
       </TouchableOpacity>
     </View>;
@@ -36,7 +36,7 @@ export default class SwipeNavbar extends React.Component {
         </Text>
         <MenuButton
           onPress={() => this.goToPage('results')}
-          icon="shopping-basket"
+          icon="rocket"
         />
       </View>
     );

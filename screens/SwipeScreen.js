@@ -136,17 +136,51 @@ export default class SwipeScreen extends React.Component {
                 <Icon name="close" size={20} color='black' />
           </TouchableOpacity>
 
+          <View style={{alignItems: 'center', padding: 5}}>
+            <Text style={{fontSize: 24}}>Eat out with friends!</Text>
+          </View>
+
+                      <View style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flexDirection: 'row',
+                        padding: 10
+                      }}>
+                        <Text style={{
+                          width: '50%',
+                          flexWrap: 'wrap',
+                          fontStyle: 'italic',
+                          justifyContent: 'center',
+                          paddingLeft: 5,
+                          paddingRight: 5
+                        }}>Swipe in a group to find a place all of you will enjoy</Text>
+                        <TouchableOpacity
+                          style={styles.friendsButton}
+                          onPress={()=>console.log()}
+                        >
+                          <Text style={{color:'white', fontWeight: 'bold'}}>Toggle Group Mode</Text>
+                        </TouchableOpacity>
+                      </View>
+
+                      <View style={{
+                        borderBottomWidth: 1,
+                        borderBottomColor: 'lightgrey',
+                        width:'90%',
+                        margin: 10,
+                      }}></View>
+
           {/* Modal title */}
-          <View style={{alignItems: 'center', padding: 15}}>
+          <View style={{alignItems: 'center', padding: 5}}>
             <Text style={{fontSize: 24}}>Preferences</Text>
           </View>
 
           <View style={{width: '100%', alignItems: 'center', justifyContent:'center'}}>
 
+
             {/* Discovery type toggle */}
             <View style={{width: '90%', margin: 20, flexDirection: 'row', justifyContent: 'space-between'}}>
               <Text style={{flex: 2}}>
-                IDK What to name this setting
+                Discover new dishes!
               </Text>
               <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
                 {this.state.switchValue ?

@@ -15,16 +15,14 @@ function hp(percentage) {
   return Math.round(value);
 }
 
-const navbarHeight = 70;
-const votesHeight = 70;
-
+const navbarHeight = 80;
 
 export default {
   windowHeight: windowHeight,
   windowWidth: windowWidth,
 
   navbar: {
-    // backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
     width: windowWidth,
     height: navbarHeight,
     position: 'absolute',
@@ -37,14 +35,17 @@ export default {
   },
 
   menuButton: {
-    width: navbarHeight - 10*2,
-    height: navbarHeight - 10*2,
+    // width: navbarHeight - 20*2,
+    // height: navbarHeight - 20*2,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 30,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderRadius: navbarHeight/2 - 10,
-    borderColor: 'darkgrey',
-    borderWidth: 2
+    // borderRadius: navbarHeight/2 - 20,
+    // borderColor: 'darkgrey',
+    // borderWidth: 2
   },
 
   closeButton: {
@@ -76,8 +77,7 @@ export default {
   logoText: {
     color: 'darkgrey',
     fontStyle: 'italic',
-    fontFamily: 'sans-serif',
-    fontSize: 32
+    fontSize: 24
   },
 
   loginContainer: {
@@ -100,11 +100,21 @@ export default {
 
   logoutButton: {
     width: '90%',
+    height: 40,
     padding: 5,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'red'
+  },
+
+  friendsButton: {
+    flex: 2,
+    backgroundColor: 'purple',
+    padding: 10,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   carouselContainer: {
@@ -175,7 +185,6 @@ export default {
   restaurantContainer:{
     height:windowHeight * 0.4,
     backgroundColor:'white',
-    marginTop:20,
     padding:20,
     // borderWidth:1,
     // borderColor:'skyblue'
