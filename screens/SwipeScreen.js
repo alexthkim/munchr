@@ -11,11 +11,8 @@ import {
   Picker
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-<<<<<<< HEAD
 import ModalDropdown from 'react-native-modal-dropdown';
 
-=======
->>>>>>> 6a7f6bf270b720a1a0c92b0f834672c5377f0832
 import LoginButton from '../components/LoginButton';
 import SwipeNavbar from '../components/swipeNavbar';
 import SwipeCards from '../components/SwipeCards';
