@@ -8,7 +8,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.appContainer}>
-        <IntroCards />
+        <IntroCards/>
         <LoginButton navigator={this.props.navigation}/>
       </View>
     );

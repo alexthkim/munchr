@@ -30,9 +30,7 @@ export default class SwipeCardsMunchr extends React.Component {
   componentDidMount(){
     AsyncStorage.getItem('username')
     .then((result)=>{
-      console.log(result);
       var id = JSON.parse(result).id;
-      console.log(id);
       this.setState({id:id});
       fetch('https://horizons-munchr.herokuapp.com/api/generate/' + id,  {
         method: 'POST',
@@ -42,7 +40,6 @@ export default class SwipeCardsMunchr extends React.Component {
         }
       }).then((response)=>response.json())
       .then((responseJSON) =>{
-        console.log(responseJSON);
         this.setState({cards:responseJSON.cards})
       }
     );
@@ -62,7 +59,6 @@ export default class SwipeCardsMunchr extends React.Component {
   }
 
   render() {
-    // console.log(typeof this.props.response);
     return (
       <View style={styles.cardsContainer}>
         <SwipeCards

@@ -1,5 +1,5 @@
 import React from 'react';
-import {AsyncStorage, View, Button, Alert, Text,TouchableOpacity} from 'react-native';
+import {AsyncStorage, View, Button, Text,TouchableOpacity} from 'react-native';
 import {Facebook} from 'expo';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import navigation
@@ -28,7 +28,6 @@ class LoginButton extends React.Component {
      .then((response)=> {
        fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
        .then((responseImgUrl)=>{
-         alert(response);
          AsyncStorage.setItem('username',JSON.stringify(response));
          fetch('https://horizons-munchr.herokuapp.com/api/login',  {
            method: 'POST',
