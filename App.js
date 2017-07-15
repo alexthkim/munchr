@@ -1,48 +1,37 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import LoginButton from './components/LoginButton';
-import SwipeNavbar from './components/swipeNavbar';
-import SwipeCards from './components/SwipeCards';
-import VoteButtons from './components/VoteButtons';
-import IntroCards from './components/IntroCards'
+import IntroCards from './components/IntroCards';
+import LoginScreen from './screens/LoginScreen';
+import SwipeScreen from './screens/SwipeScreen';
+import ResultsScreen from './screens/ResultsScreen';
 
 import styles from './assets/styles';
 
-export default class App extends React.Component {
-
-  render() {
-    return (
-      <View style={styles.appContainer}>
-        <SwipeNavbar />
-        <SwipeCards />
-        <VoteButtons />
-      </View>
-    );
-  }
-}
+// export default class App extends React.Component {
+//
+//   render() {
+//     return (
+//       <View style={styles.appContainer}>
+//         <IntroCards />
+//         <LoginButton />
+//       </View>
+//     );
+//   }
+// }
 
 
 
 //Navigator
-// export default StackNavigator({
-//   Home:{
-//     screen: HomeScreen,
-//   },
-// Login: {
-//   screen: LoginScreen,
-// },
-// Swipe:{
-//   screen: SwiperScreen,
-// },
-// Register: {
-//   screen: RegisterScreen,
-// },
-// Users: {
-//   screen: UsersScreen,
-// },
-// Messages: {
-//   screen: MessagesScreen
-// }
-// },
-// {initialRouteName: 'Home'});
+export default StackNavigator({
+Login: {
+  screen: LoginScreen,
+},
+Swipe:{
+  screen: SwipeScreen,
+}
+},
+{initialRouteName: 'Login'
+});
