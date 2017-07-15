@@ -92,7 +92,7 @@ export default class SwipeScreen extends React.Component {
         </Modal>
 
         <SwipeNavbar openModal={() => this.toggleModalVisibility(true)} />
-        <SwipeCards />
+        <SwipeCards navigator={this.props.navigation}/>
       </View>
     );
   }

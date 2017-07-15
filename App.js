@@ -25,7 +25,7 @@ export default StackNavigator({
     screen: ResultsScreen,
   }
 },
-{initialRouteName: 'Results',
+{initialRouteName: 'Login',
 navigationOptions:{
   header:null
 }

@@ -29,9 +29,9 @@ export default class SwipeCardsMunchr extends React.Component {
     this.state = {
       cards: [
         {
-          id: '9HU349H8340',
-          text: 'Pizza',
-          image: 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg'
+          id: '34UY98439RU4',
+          text: 'Pad Thai',
+          image: 'http://static.asiawebdirect.com/m/bangkok/portals/bangkok-com/homepage/magazine/best-pad-thai/pagePropertiesImage/padthai-1.jpg'
         },
         {
           id: '9Y434U982T4',
@@ -39,10 +39,10 @@ export default class SwipeCardsMunchr extends React.Component {
           image: 'http://i.ndtvimg.com/i/2015-01/dumplings_625x350_81421835686.jpg'
         },
         {
-          id: '34UY98439RU4',
-          text: 'Pad Thai',
-          image: 'http://static.asiawebdirect.com/m/bangkok/portals/bangkok-com/homepage/magazine/best-pad-thai/pagePropertiesImage/padthai-1.jpg'
-        }
+          id: '9HU349H8340',
+          text: 'Pizza',
+          image: 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg'
+        },
       ]
     };
   }
@@ -52,7 +52,6 @@ export default class SwipeCardsMunchr extends React.Component {
   }
 
   handleNope(card) {
-
   }
 
   render() {
@@ -61,7 +60,7 @@ export default class SwipeCardsMunchr extends React.Component {
         <SwipeCards
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
-          renderNoMoreCards={() => <NoMoreCards />}
+          renderNoMoreCards={() => this.props.navigator.navigate("Results")}
           yupText="YUM"
           nopeText="EW"
           handleYup={card => this.handleYup(card)}
