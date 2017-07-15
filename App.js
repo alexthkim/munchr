@@ -1,23 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Navigator, TouchableOpacity, StyleSheet, Text, View, Modal, Switch } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-import LoginButton from './components/LoginButton';
-import SwipeNavbar from './components/swipeNavbar';
-import SwipeCards from './components/SwipeCards';
-import VoteButtons from './components/VoteButtons';
-import IntroCards from './components/IntroCards'
+import LoginScreen from './screens/LoginScreen';
+import SwipeScreen from './screens/SwipeScreen';
 
 import styles from './assets/styles';
 
-export default class App extends React.Component {
-
-  render() {
-    return (
-      <View style={styles.appContainer}>
-        <SwipeNavbar />
-        <SwipeCards />
-        <VoteButtons />
-      </View>
-    );
-  }
-}
+export default StackNavigator({
+  Login: { screen: LoginScreen },
+  Swipe: { screen: SwipeScreen }
+});

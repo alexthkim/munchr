@@ -39,6 +39,8 @@ export default {
   menuButton: {
     width: navbarHeight - 10*2,
     height: navbarHeight - 10*2,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: 'white',
     borderRadius: navbarHeight/2 - 10,
     borderColor: 'darkgrey',
@@ -92,7 +94,7 @@ export default {
   },
 
   cardsContainer: {
-    top: navbarHeight,
+    top: navbarHeight/2,
     height: windowHeight - navbarHeight,
     // width: windowWidth,
     // height: hp(60),
