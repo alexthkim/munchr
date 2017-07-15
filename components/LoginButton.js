@@ -1,6 +1,7 @@
 import React from 'react';
 import {AsyncStorage, View, Button, Alert, Text,TouchableOpacity} from 'react-native';
 import {Facebook} from 'expo';
+import Icon from 'react-native-vector-icons/FontAwesome';
 // import navigation
 import styles from '../assets/styles'
 
@@ -41,10 +42,14 @@ class LoginButton extends React.Component {
 
   render() {
     return (
-    <View style={styles.loginButton}>
+    <View style={styles.loginContainer}>
 
-      <TouchableOpacity onPress={(()=>this.facebookLogin())}>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={(()=>this.facebookLogin())}
+        >
         <Text style={styles.loginText}>Log In with Facebook</Text>
+        <Icon name="facebook-square" size={20} color="white" />
       </TouchableOpacity>
 
     </View>

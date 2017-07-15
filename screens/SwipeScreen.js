@@ -182,7 +182,6 @@ export default class SwipeScreen extends React.Component {
               <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={{flex: 2}}>Current dietary restrictions:</Text>
 
-                  {/* <Icon name="plus" size={20} color='green' /> */}
                   <ModalDropdown
                     options={this.foodPrefChoices
                               .map(item => item.name)
@@ -199,8 +198,6 @@ export default class SwipeScreen extends React.Component {
                     />
               </View>
 
-
-
               <View style={{
                 flexDirection: 'row',
                 flexWrap: 'wrap'
@@ -215,6 +212,7 @@ export default class SwipeScreen extends React.Component {
                     borderRadius: 12,
                     padding: 5,
                     marginRight: 5,
+                    marginBottom: 5,
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexDirection: 'row'

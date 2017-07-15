@@ -80,13 +80,22 @@ export default {
     fontSize: 24
   },
 
-  loginButton: {
+  loginContainer: {
     flex:0.5,
-    justifyContent:"center"
+    justifyContent:"center",
+  },
+
+  loginButton: {
+    backgroundColor: '#3b5998',
+    padding: 7,
+    borderRadius: 5,
+    flexDirection: 'row'
   },
 
   loginText:{
-    color: '#3b5998',
+    color: 'white',
+    fontWeight: 'bold',
+    marginRight: 10
   },
 
   carouselContainer: {
