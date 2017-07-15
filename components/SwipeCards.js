@@ -1,54 +1,57 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, AsyncStorage } from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
-
 import styles from '../assets/styles';
 
-const Card = ({ text, image }) => (
+const Card = ({ URL }) => (
   <View style={styles.card}>
     <Image
       style={styles.cardImage}
-      source={{uri: image}}
+      source={{uri: URL}}
       shadowOpacity={1}
      />
     <View style={{ flex: 1 }}></View>
   </View>
 );
 
-const NoMoreCards = () => (
-  <View>
-    <Text style={{
-      fontSize: 32
-    }}>Loading more cards...</Text>
-  </View>
-);
+// const NoMoreCards = () => (
+//
+// );
 
 export default class SwipeCardsMunchr extends React.Component {
   constructor() {
     super();
-    this.state = {
-      cards: [
-        {
-          id: '9HU349H8340',
-          text: 'Pizza',
-          image: 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg'
-        },
-        {
-          id: '9Y434U982T4',
-          text: 'Dumplings',
-          image: 'http://i.ndtvimg.com/i/2015-01/dumplings_625x350_81421835686.jpg'
-        },
-        {
-          id: '34UY98439RU4',
-          text: 'Pad Thai',
-          image: 'http://static.asiawebdirect.com/m/bangkok/portals/bangkok-com/homepage/magazine/best-pad-thai/pagePropertiesImage/padthai-1.jpg'
+    this.state={
+      id: 0,
+      cards:[{id:0}]
+    }
+  }
+
+  componentDidMount(){
+    AsyncStorage.getItem('username')
+    .then((result)=>{
+      console.log(result);
+      var id = JSON.parse(result).id;
+      console.log(id);
+      this.setState({id:id});
+      fetch('https://horizons-munchr.herokuapp.com/api/generate/' + id,  {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
         }
-      ]
-    };
+      }).then((response)=>response.json())
+      .then((responseJSON) =>{
+
+        console.log(responseJSON);
+        this.setState({cards:responseJSON.cards})
+      }
+    );
+    })
   }
 
   handleYup(card) {
-
+    // this.setState
   }
 
   handleNope(card) {
@@ -56,12 +59,14 @@ export default class SwipeCardsMunchr extends React.Component {
   }
 
   render() {
+    // console.log(typeof this.props.response);
     return (
       <View style={styles.cardsContainer}>
         <SwipeCards
+          smoothTransition={false}
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
-          renderNoMoreCards={() => <NoMoreCards />}
+          renderNoMoreCards={() => this.props.navigator.navigate('Results')}
           yupText="YUM"
           nopeText="EW"
           handleYup={card => this.handleYup(card)}

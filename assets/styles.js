@@ -152,5 +152,63 @@ export default {
   cardTitle: {
     flex: 1,
     fontSize: 24
-  }
+  },
+
+  restaurantContainer:{
+    height:windowHeight * 0.4,
+    backgroundColor:'white',
+    marginTop:20,
+    padding:20,
+    // borderWidth:1,
+    // borderColor:'skyblue'
+  },
+
+  restaurantTextContainer:{
+    alignItems: 'flex-end',
+    flexDirection:'row',
+    // borderColor:'black',
+    // borderWidth:1
+  },
+
+  restaurantText:{
+    flex:7,
+    fontSize:20
+  },
+
+  restaurantText2:{
+    alignItems: 'flex-end',
+    flexDirection:'row',
+    // borderColor:'black',
+    // borderWidth:1
+  },
+
+  imageListContainer:{
+  width:'100%',
+  height:'80%',
+  // borderColor:'red',
+  // borderWidth:1,
+  paddingTop:5,
+  paddingBottom:5
+},
+
+restaurantCuisine:{
+  // borderColor: 'purple',
+  // borderWidth: 1
+},
+
+imageSmallContainer:{
+  // borderColor: 'pink',
+  // borderWidth: 2,
+  marginRight:5
+},
+
+imageSmall:{
+  borderRadius:10,
+  margin:0,
+  width:windowWidth/2.5,
+  height:'100%',
+  // borderColor:'blue',
+  // borderWidth:1
+}
+
 };

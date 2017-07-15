@@ -11,8 +11,11 @@ import {
   Picker
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+<<<<<<< HEAD
 import ModalDropdown from 'react-native-modal-dropdown';
 
+=======
+>>>>>>> 6a7f6bf270b720a1a0c92b0f834672c5377f0832
 import LoginButton from '../components/LoginButton';
 import SwipeNavbar from '../components/swipeNavbar';
 import SwipeCards from '../components/SwipeCards';
@@ -72,11 +75,14 @@ export default class SwipeScreen extends React.Component {
     this.state = {
       settingsVisible: false,
       switchValue: false,
+
       searchRadius: 1.0,
       displayRadius: 1.0,
-      foodPreferences: this.foodPrefChoices.slice(0,5)
+      foodPreferences: this.foodPrefChoices.slice(0,5),
+      response:[]
     };
   }
+
 
   toggleModalVisibility(bool) {
     this.setState({
@@ -245,7 +251,7 @@ export default class SwipeScreen extends React.Component {
         </Modal>
 
         <SwipeNavbar openModal={() => this.toggleModalVisibility(true)} />
-        <SwipeCards />
+        <SwipeCards navigator={this.props.navigation}/>
       </View>
     );
   }
