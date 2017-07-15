@@ -18,8 +18,19 @@ export default () =>
 >
 
   <View style={styles.carouselContainer}>
+
     <View style={styles.imageContainer}>
+
       <Image style={styles.image}
+        source={require('./../assets/first.png')}
+      />
+    </View>
+  </View>
+
+  <View style={styles.carouselContainer}>
+    <View style={styles.imageContainer}>
+      <Image
+        style={styles.image}
         source={require('./../assets/intro.png')}
       />
     </View>
@@ -32,10 +43,6 @@ export default () =>
         source={require('./../assets/examples.png')}
       />
     </View>
-  </View>
-
-  <View style={styles.carouselContainer}>
-    <Text>Page 3</Text>
   </View>
 
 </Carousel>;

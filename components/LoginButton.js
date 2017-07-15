@@ -28,7 +28,6 @@ class LoginButton extends React.Component {
      .then((response)=> {
        fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
        .then((responseImgUrl)=>{
-         alert(response);
          AsyncStorage.setItem('username',JSON.stringify(response));
          fetch('https://horizons-munchr.herokuapp.com/api/login',  {
            method: 'POST',
@@ -37,12 +36,14 @@ class LoginButton extends React.Component {
              'Content-Type': 'application/json',
            },
            body: JSON.stringify({
-             fbID: JSON.parse(response),
+             fbID: JSON.parse(JSON.stringify(response)).id,
            })
-         }).then((response2) => response2.json())
+         }).then((response2) => {
+           return response2.json()})
          .then((responseJSON) => {
+
            AsyncStorage.setItem('mongoinfo',JSON.stringify(responseJSON.id));
-           this.setState({username:JSON.parse(result).name});
+           this.setState({username:JSON.parse(JSON.stringify(response)).name});
            this.props.navigator.navigate('Swipe');
          })
        })
@@ -50,29 +51,29 @@ class LoginButton extends React.Component {
    }
  }
 
-  componentDidMount(){
-    AsyncStorage.getItem('username')
-    .then((result)=>{
-      if (result != null) {
-        fetch('https://horizons-munchr.herokuapp.com/api/login',  {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            fbID: JSON.parse(result).id,
-          })
-        }).then((response) => {
-          return response.json()})
-        .then((responseJSON) => {
-          AsyncStorage.setItem('mongoinfo',JSON.stringify(responseJSON.id));
-          this.setState({username:JSON.parse(result).name});
-          this.props.navigator.navigate('Swipe');
-        });
-      }
-    })
-  }
+  // componentDidMount(){
+  //   AsyncStorage.getItem('username')
+  //   .then((result)=>{
+  //     if (result != null) {
+  //       fetch('https://horizons-munchr.herokuapp.com/api/login',  {
+  //         method: 'POST',
+  //         headers: {
+  //           'Accept': 'application/json',
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify({
+  //           fbID: JSON.parse(result).id,
+  //         })
+  //       }).then((response) => {
+  //         return response.json()})
+  //       .then((responseJSON) => {
+  //         AsyncStorage.setItem('mongoinfo',JSON.stringify(responseJSON.id));
+  //         this.setState({username:JSON.parse(result).name});
+  //         this.props.navigator.navigate('Swipe');
+  //       });
+  //     }
+  //   })
+  // }
 
   render() {
     return (

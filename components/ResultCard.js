@@ -19,7 +19,6 @@ export default class ResultCard extends React.Component{
     .then((result) => {
       var id = JSON.parse(result);
       this.setState({id:id});
-      alert(this.props.cards);
 
       fetch('https://horizons-munchr.herokuapp.com/api/results/' + id,  {
         method: 'POST',
