@@ -1,3 +1,5 @@
+"strict mode";
+
 import React from 'react';
 
 import { StyleSheet, Text, View } from 'react-native';
@@ -11,28 +13,16 @@ import ResultsScreen from './screens/ResultsScreen';
 
 import styles from './assets/styles';
 
-// export default class App extends React.Component {
-//
-//   render() {
-//     return (
-//       <View style={styles.appContainer}>
-//         <IntroCards />
-//         <LoginButton />
-//       </View>
-//     );
-//   }
-// }
-
-
-
 //Navigator
-export default StackNavigator({
-Login: {
-  screen: LoginScreen,
-},
-Swipe:{
-  screen: SwipeScreen,
-}
-},
-{initialRouteName: 'Login'
-});
+export default StackNavigator(
+  {
+    Login: { screen: LoginScreen },
+    Swipe: { screen: SwipeScreen }
+  },
+  {
+    initialRouteName: 'Login',
+    navigationOptions: {
+      header: null
+    }
+  }
+);
