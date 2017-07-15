@@ -8,7 +8,6 @@ import {
   Switch
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import LoginButton from '../components/LoginButton';
 import SwipeNavbar from '../components/swipeNavbar';
 import SwipeCards from '../components/SwipeCards';
@@ -23,9 +22,11 @@ export default class SwipeScreen extends React.Component {
     super();
     this.state = {
       settingsVisible: false,
-      switchValue: false
+      switchValue: false,
+      response:[]
     };
   }
+
 
   toggleModalVisibility(bool) {
     this.setState({

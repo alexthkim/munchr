@@ -27,7 +27,7 @@ class LoginButton extends React.Component {
      .then((response)=> {
        console.log(response);
        fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
-       .then((response)=>{console.log(response.url)
+       .then((responseImgUrl)=>{console.log(response.imgUrl)
          AsyncStorage.setItem('username',JSON.stringify(response));
          this.props.navigator.navigate('Swipe');})
      })
