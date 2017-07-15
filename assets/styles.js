@@ -62,7 +62,19 @@ export default {
     borderWidth: 2
   },
 
+  addButton: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderColor: 'green',
+    borderWidth: 2
+  },
+
   logoText: {
+    margin: 'auto',
     color: 'darkgrey',
     fontStyle: 'italic',
     fontSize: 24

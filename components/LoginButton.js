@@ -11,35 +11,32 @@ class LoginButton extends React.Component {
       username:''
     })
   }
-  async facebookLogin() {
 
+  async facebookLogin() {
     const { type, token } = await Facebook.logInWithReadPermissionsAsync(
       '1440702659353377',
       { permissions: ['public_profile', 'email'] }
     );
 
     if (type === 'success') {
-      console.log('success');
-      // Get the user's name using Facebook's Graph API
-      const response = await fetch(
-     `https://graph.facebook.com/me?fields=email,name,timezone,locale,gender&access_token=${token}`)
-     .then((response)=>(response.json()))
-     .then((response)=> {
-       console.log(response);
-       fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
-       .then((response)=>{console.log(response.url)
-         AsyncStorage.setItem('username',JSON.stringify(response));
-         this.props.navigator.navigate('Swipe');})
-     })
+      fetch(`https://graph.facebook.com/me?fields=email,name,timezone,locale,gender&access_token=${token}`)
+        .then(response => response.json())
+        .then(response =>
+          fetch('http://graph.facebook.com/'+ response.id +'/picture?type=large&w‌idth=360&height=360')
+            .then(response => {
+              AsyncStorage.setItem('username', JSON.stringify(response));
+              this.props.navigator.navigate('Swipe');
+            })
+        );
    }
   }
 
   componentDidMount(){
     AsyncStorage.getItem('username')
-    .then((result)=>{
-      this.setState({username:JSON.parse(result).name});
-      this.props.navigator.navigate('Swipe');
-    })
+      .then(result => {
+        this.setState({ username: JSON.parse(result).name });
+        this.props.navigator.navigate('Swipe');
+      });
   }
 
   render() {
