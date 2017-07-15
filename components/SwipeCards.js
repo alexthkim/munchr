@@ -9,14 +9,17 @@ const Card = ({ text, image }) => (
     <Image
       style={styles.cardImage}
       source={{uri: image}}
+      shadowOpacity={1}
      />
-    <Text style={styles.cardTitle}>{text}</Text>
+    <View style={{ flex: 1 }}></View>
   </View>
 );
 
 const NoMoreCards = () => (
   <View>
-    <Text>No more cards!</Text>
+    <Text style={{
+      fontSize: 32
+    }}>Loading more cards...</Text>
   </View>
 );
 
@@ -59,8 +62,8 @@ export default class SwipeCardsMunchr extends React.Component {
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
           renderNoMoreCards={() => <NoMoreCards />}
-          yupText="Yum!"
-          nopeText="Ew!"
+          yupText="YUM"
+          nopeText="EW"
           handleYup={card => this.handleYup(card)}
           handleNope={card => this.handleNope(card)}
         />
