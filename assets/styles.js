@@ -74,10 +74,10 @@ export default {
   },
 
   logoText: {
-    margin: 'auto',
     color: 'darkgrey',
     fontStyle: 'italic',
-    fontSize: 24
+    fontFamily: 'sans-serif',
+    fontSize: 32
   },
 
   loginContainer: {
@@ -96,6 +96,15 @@ export default {
     color: 'white',
     fontWeight: 'bold',
     marginRight: 10
+  },
+
+  logoutButton: {
+    width: '90%',
+    padding: 5,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red'
   },
 
   carouselContainer: {
@@ -218,6 +227,19 @@ imageSmall:{
   height:'100%',
   // borderColor:'blue',
   // borderWidth:1
+},
+
+foodPrefListing: {
+  height: 24,
+  borderWidth: 2,
+  borderColor: '#666666',
+  borderRadius: 12,
+  padding: 5,
+  marginRight: 5,
+  marginBottom: 5,
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'row'
 }
 
 };

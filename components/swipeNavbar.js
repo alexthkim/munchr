@@ -32,11 +32,11 @@ export default class SwipeNavbar extends React.Component {
           icon="cog"
         />
         <Text style={styles.logoText}>
-          Munchr
+          munchr
         </Text>
         <MenuButton
           onPress={() => this.goToPage('results')}
-          icon="rocket"
+          icon="shopping-basket"
         />
       </View>
     );
