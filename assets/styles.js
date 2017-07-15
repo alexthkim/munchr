@@ -15,16 +15,14 @@ function hp(percentage) {
   return Math.round(value);
 }
 
-const navbarHeight = 70;
-const votesHeight = 70;
-
+const navbarHeight = 80;
 
 export default {
   windowHeight: windowHeight,
   windowWidth: windowWidth,
 
   navbar: {
-    // backgroundColor: 'lightgrey',
+    backgroundColor: 'white',
     width: windowWidth,
     height: navbarHeight,
     position: 'absolute',
@@ -37,14 +35,17 @@ export default {
   },
 
   menuButton: {
-    width: navbarHeight - 10*2,
-    height: navbarHeight - 10*2,
+    // width: navbarHeight - 20*2,
+    // height: navbarHeight - 20*2,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 30,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderRadius: navbarHeight/2 - 10,
-    borderColor: 'darkgrey',
-    borderWidth: 2
+    // borderRadius: navbarHeight/2 - 20,
+    // borderColor: 'darkgrey',
+    // borderWidth: 2
   },
 
   closeButton: {
@@ -62,19 +63,58 @@ export default {
     borderWidth: 2
   },
 
+  addButton: {
+    width: 30,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: 15,
+    borderColor: 'green',
+    borderWidth: 2
+  },
+
   logoText: {
     color: 'darkgrey',
     fontStyle: 'italic',
     fontSize: 24
   },
 
-  loginButton: {
+  loginContainer: {
     flex:0.5,
-    justifyContent:"center"
+    justifyContent:"center",
+  },
+
+  loginButton: {
+    backgroundColor: '#3b5998',
+    padding: 7,
+    borderRadius: 5,
+    flexDirection: 'row'
   },
 
   loginText:{
-    color: '#3b5998',
+    color: 'white',
+    fontWeight: 'bold',
+    marginRight: 10
+  },
+
+  logoutButton: {
+    width: '90%',
+    height: 40,
+    padding: 5,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red'
+  },
+
+  friendsButton: {
+    flex: 2,
+    backgroundColor: 'purple',
+    padding: 10,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   carouselContainer: {
@@ -145,7 +185,6 @@ export default {
   restaurantContainer:{
     height:windowHeight * 0.4,
     backgroundColor:'white',
-    marginTop:20,
     padding:20,
     // borderWidth:1,
     // borderColor:'skyblue'
@@ -197,6 +236,19 @@ imageSmall:{
   height:'100%',
   // borderColor:'blue',
   // borderWidth:1
+},
+
+foodPrefListing: {
+  height: 24,
+  borderWidth: 2,
+  borderColor: '#666666',
+  borderRadius: 12,
+  padding: 5,
+  marginRight: 5,
+  marginBottom: 5,
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'row'
 }
 
 };

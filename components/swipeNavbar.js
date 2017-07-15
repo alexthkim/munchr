@@ -8,7 +8,7 @@ const MenuButton = ({ onPress, icon }) =>
     <View>
       <TouchableOpacity onPress={onPress}>
         <View style={styles.menuButton}>
-          <Icon name={icon} size={30} color='darkgrey' />
+          <Icon name={icon} size={30} color='lightgrey' />
         </View>
       </TouchableOpacity>
     </View>;
@@ -32,7 +32,7 @@ export default class SwipeNavbar extends React.Component {
           icon="cog"
         />
         <Text style={styles.logoText}>
-          Munchr
+          munchr
         </Text>
         <MenuButton
           onPress={() => this.goToPage('results')}

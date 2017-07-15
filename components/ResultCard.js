@@ -52,6 +52,7 @@ export default class ResultCard extends React.Component{
         <ListView style={{backgroundColor:'white'}}
           dataSource={ds.cloneWithRows(this.state.restaurant)}
           renderRow={restaurant=>(
+
             <View style={styles.restaurantContainer}>
               <View style={styles.restaurantTextContainer}>
                 <Text style={{flex:7,fontSize:20}}>

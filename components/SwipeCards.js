@@ -66,7 +66,6 @@ export default class SwipeCardsMunchr extends React.Component {
     return (
       <View style={styles.cardsContainer}>
         <SwipeCards
-          // smoothTransition={false}
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
           renderNoMoreCards={() => this.props.navigator.navigate('Results',{cards:this.state.cardResults})}
