@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, ListView} from 'react-native';
+import {View, Text, Image, ListView, AsyncStorage} from 'react-native';
 import styles from '../assets/styles'
 import ResultPhotos from './ResultPhotos';
 export default class ResultCard extends React.Component{
@@ -7,48 +7,72 @@ export default class ResultCard extends React.Component{
   constructor(){
     super()
     this.state=({
-      restaurant:{
-        name:'Trader Joes',
-        location:'0.2mi',
-        rating:4,
-        price:2,
-        img:[
-          'https://s3-media4.fl.yelpcdn.com/bphoto/hAHr4nQG7bNU2PqSOSRJBA/o.jpg',
-          'https://s3-media1.fl.yelpcdn.com/bphoto/-l6c16KBZ8SnaPTg6aS_nQ/o.jpg',
-          'https://s3-media2.fl.yelpcdn.com/bphoto/kI5kRRnRoo54j5y65Dd0WQ/o.jpg']
-      },
+      restaurant:[],
+      id: 0,
+      pictures:[]
+    })
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('mongoinfo')
+    .then((result) => {
+      var id = JSON.parse(result);
+      this.setState({id:id});
+
+      fetch('https://horizons-munchr.herokuapp.com/api/results/' + id,  {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          swipes: JSON.parse(JSON.stringify(this.props.cards)),
+          lat: 37.77,
+          long: -122.43,
+        })
+      }).then((response) => response.json())
+      .then((responseJSON) => {
+        this.setState({restaurant:[responseJSON.restaurant]})
+        fetch('https://horizons-munchr.herokuapp.com/api/pictures/' + responseJSON.restaurant.id,  {
+          method: 'GET'
+        }).then((response) => response.json())
+        .then((responseJSON) => {
+          this.setState({pictures: responseJSON.pictures})
+        });
+      });
+
+
     })
   }
 
     render(){
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
+      console.log(this.state.pictures);
       return (
         <ListView style={{backgroundColor:'white'}}
-          dataSource={ds.cloneWithRows([1,2])}
-          renderRow={()=>
-
+          dataSource={ds.cloneWithRows(this.state.restaurant)}
+          renderRow={restaurant=>(
             <View style={styles.restaurantContainer}>
               <View style={styles.restaurantTextContainer}>
                 <Text style={{flex:7,fontSize:20}}>
-                  {this.state.restaurant.name}
+                  {restaurant.name}
                 </Text>
                 <Text style={{flex:1}}>
-                  {this.state.restaurant.location}
+                  {restaurant.location.address1}
                 </Text>
               </View>
 
               <View style={styles.restaurantText2}>
                 <Text style={{flex:7}}>
-                  {this.state.restaurant.rating}
+                  {restaurant.rating}
                 </Text>
                 <Text style={{flex:1}}>
-                  {this.state.restaurant.price}
+                  {restaurant.price}
                 </Text>
               </View>
 
               <View style={styles.imageListContainer}>
-                <ResultPhotos img={this.state.restaurant.img}/>
+                <ResultPhotos img={this.state.pictures}/>
               </View>
               <View style={styles.restaurantCuisine}>
                 <Text>
@@ -56,8 +80,7 @@ export default class ResultCard extends React.Component{
                 </Text>
               </View>
             </View>
-
-          }
+          )}
         />
 
 

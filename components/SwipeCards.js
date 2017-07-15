@@ -22,9 +22,9 @@ export default class SwipeCardsMunchr extends React.Component {
   constructor() {
     super();
     this.state={
-      id: 0,
-      cards:[{id:0}]
-    }
+      cards:[{id:0}],
+      cardResults: []
+      }
   }
 
   componentDidMount(){
@@ -42,7 +42,6 @@ export default class SwipeCardsMunchr extends React.Component {
         }
       }).then((response)=>response.json())
       .then((responseJSON) =>{
-
         console.log(responseJSON);
         this.setState({cards:responseJSON.cards})
       }
@@ -51,11 +50,15 @@ export default class SwipeCardsMunchr extends React.Component {
   }
 
   handleYup(card) {
-    // this.setState
+    const newCard = {ID: Number(card['ID']), swipeRight: true};
+    const newCards = this.state.cardResults.concat(newCard);
+    this.setState({cardResults: newCards});
   }
 
   handleNope(card) {
-
+    const newCard = {ID: Number(card['ID']), swipeRight: false};
+    const newCards = this.state.cardResults.concat(newCard);
+    this.setState({cardResults: newCards});
   }
 
   render() {
@@ -63,10 +66,10 @@ export default class SwipeCardsMunchr extends React.Component {
     return (
       <View style={styles.cardsContainer}>
         <SwipeCards
-          smoothTransition={false}
+          // smoothTransition={false}
           cards={this.state.cards}
           renderCard={cardData => <Card {...cardData} />}
-          renderNoMoreCards={() => this.props.navigator.navigate('Results')}
+          renderNoMoreCards={() => this.props.navigator.navigate('Results',{cards:this.state.cardResults})}
           yupText="YUM"
           nopeText="EW"
           handleYup={card => this.handleYup(card)}
