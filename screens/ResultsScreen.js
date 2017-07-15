@@ -18,7 +18,7 @@ export default class ASDF extends React.Component {
   render() {
     return (
       <View style={{
-        backgroundColor: 'white'
+        backgroundColor: 'white',flex:1
       }}>
         <View
           style={styles.navbar}>
@@ -26,12 +26,6 @@ export default class ASDF extends React.Component {
             onPress={() => this.props.navigation.navigate('Swipe')}
             icon="refresh"
           />
-          {/* <Text style={styles.logoText}>
-            munchr
-          </Text>
-          <MenuButton
-            icon="rocket"
-          /> */}
         </View>
         <ResultCard cards={this.props.navigation.state.params.cards}/>
       </View>

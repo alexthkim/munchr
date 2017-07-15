@@ -185,7 +185,9 @@ export default {
   restaurantContainer:{
     height:windowHeight * 0.4,
     backgroundColor:'white',
-    padding:20,
+    padding:40,
+    marginTop:windowHeight/4,
+    marginBottom:10
     // borderWidth:1,
     // borderColor:'skyblue'
   },
@@ -199,12 +201,14 @@ export default {
 
   restaurantText:{
     flex:7,
-    fontSize:20
+    fontSize:24
   },
 
   restaurantText2:{
     alignItems: 'flex-end',
     flexDirection:'row',
+    marginTop:10,
+    marginBottom:10
     // borderColor:'black',
     // borderWidth:1
   },
