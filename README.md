@@ -1,4 +1,9 @@
 # munchr
 Quick, Lightweight application that allows users the find desirable food
 
-![alt text](assets/swipe.gif "Description goes here")
+
+<dl>
+  <dt>Screenshot Demo </dt>
+<img src="assets/swipe.gif" style="width: 200px;"/>
+
+</dl>
